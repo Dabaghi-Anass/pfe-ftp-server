@@ -12,7 +12,8 @@ export FTP_HOME=/home/data-directories
 ```
 3. Run the following command
 ```bash
-docker-compose up -d
+docker build -t custom-ftp-server .
+docker run -d -p 21:21 -p 30000-30009:30000-30009 -e FTP_USER=$FTP_USER -e FTP_PASSWORD=$FTP_PASSWORD -e FTP_PORT=$FTP_PORT -e FTP_HOME=$FTP_HOME custom-ftp-server
 ```
 3. Connect to the ftp server using the following credentials
 ```bash
